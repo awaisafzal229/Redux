@@ -3,7 +3,7 @@ const initialState = {
     users : []
 }
 const Slice = createSlice({
-    name: 'yourSliceName',
+    name: 'addUserSlice',
     initialState,
     reducers:{
         addUser:(state:any, action:any) =>{
@@ -11,9 +11,13 @@ const Slice = createSlice({
             
             const data = {
                 id : nanoid(),
-                name: action.name
+                name: action.payload
             }
-            state.users.push(data);
+            // state.users.push(data);
+            return {
+                ...state,
+                users: [...state.users, data] // Return a new state object with updated users array
+              };
         }
     }
 });

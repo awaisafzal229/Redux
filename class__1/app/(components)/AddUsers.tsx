@@ -1,12 +1,13 @@
 "use client"
 import { useState } from "react";
 import { addUser } from "../redux/slice";
-import {useDispatch} from "react-redux"
+import { useDispatch } from "react-redux";
 
 function AddUsers() {
   const [name, setName]:any = useState("");
   const dispatch = useDispatch()
   const userDispatch = ()=>{
+    // console.log(name);
     
     dispatch(addUser(name))
   }
